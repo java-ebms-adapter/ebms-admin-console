@@ -1,24 +1,24 @@
 language: java
 jdk: openjdk8
 before_deploy:
-- mvn help:evaluate -N -Dexpression=project.version|grep -v '\['
-- export project_version=$(mvn help:evaluate -N -Dexpression=project.version | grep -v '\[')
+  - mvn help:evaluate -N -Dexpression=project.version|grep -v '\['
+  - export project_version=$(mvn help:evaluate -N -Dexpression=project.version | grep -v '\[')
 deploy:
   provider: releases
   api_key:
     secure: TaWXrg5y0wS2WBguaI9x8a/Wk0l6wKsAYfcsrUM+uly6Eh60p2n3EH2/n+fZAmKJFpg9t745H2yFJHVKIVuKQY1khPhaxx8apcnsWnP0CQSpFC6zc7ciSgE8mT2whY4EsFX7izHYzcbHF3iuZ3DuKY/wxp+ToYL8oMS7jwZhaxrGl1857J9JW9dFogmGvOsq4aYY0lezSCjxB/ZuHuISXTo2xZww/0iFr1pXWrL0seG9T7jeXv2tJK1V2oQaho7dpSrB8kH6qiBibSH4ieKu9vLugr4UaP3ej7ldPWEozbi63TAR8bf9BHRHcmlcasvyDugGgIi8qkCBg7oVtaCpmafCNgdscttZLED2jt34gsWGwx614vNf4Xgusbb6uCFb+jXLD+1ymVzC6yUvj/RhOaV26YvLFpdgNDU3+l5sok4etQO14UGgNt7Mxieklmw0RquDf7wzUbs5jA3kUgxkeJPhbVFf0tgupzONAt8N6mGVxSpOYaJuFNH8CMVsT0rUlmP1c7CTa+KVAiLTkjVayWGoxNdeJGJ3FO/BLH3vlR5E/o131L9VTLeQpHywuP7UFkcM+34vaczjSd7ZtVCTzgm0jAt3Mz/LpMYrNpcAqstOYKjYUlfioO4EmsssZrWVCA+7b9JIhvYZO9YYOTN5+eFLxpk+sKIVZwHXGgz+8Ik=
   file:
-      - target/ebms-admin-$project_version.jar
+    - target/ebms-admin-$project_version.jar
   skip_cleanup: true
   on:
     repo: java-ebms-adapter/ebms-admin-console
     branch: master
-  name: $project_version
+  name: "$project_version"
 addons:
   sonarcloud:
-    organization: "java-ebms-adapter"
+    organization: java-ebms-adapter
     token:
-      secure: "VwE1iBPvOKqyGoP6tn7GqNl0hbGs48OSim31kaf0Mdr6t3q/ME5snmE4tzL3VGvYO2oR/Ap4C/lnnnXyO1JUlviWEEAqGcafwlHPy1MTc6DfA43WfV1h+A5e7UM00AvqkoZ+k0mtQ03ChRh/fsxYvTcx5UBIqBMNcqjqFpa56leL95Kja2heoAxlEnCUJG8PCtaH98duaFEGzqMRe6HjVaAhSEFofy78BEL9LUCh/vlx27jJwI4newpUkJcAf5yp/dh0/10QMNzNE1stEZ6+wnvLTy2llZscuuHbfq9FOoWcMjDU0pzHIb3a2ReqvowniWantwdebYjsb+NTDxohrbo/jaGytgfmR0O5Iy8VUT+30fVh380FzM5UFemTzhaTVRth+ZO/amftcPB8M1XUmUPgLEEWILuBo160KOUt4CBr7WjM5IFwHxVQ/DrM86A0c/4r96j5XCugML1Koc0TlKWlQnpA3LM/X4/g5TAzuCxu6/61CMSvVW4GFqoLhQOmQM+xy9x31suqa02tEjF9Q9cEmAU/U1lsM2w7CQfpG4SE7YQIF2JhIlNM2vUGPSFqI5vTsQVGiJnf9zAcfWOROsdzTfFD+kyMfziYcwHVrKQhZL8pfJqu/PX3L0R61ex4/LFKt1eRnYnYntPF9dzmt24r9AYki7lyXzNfMf8SDMo="
+      secure: d3M0Kw8WBklNWuSFOOkG51FIY+pkrA9jE9H55/I2dCb+biHtWy8qQOW5BgEs5qjLdlG4L+zi3e2WhVBhNUgGC3v2Uupum5rOHd3GqwonZ5jFySv1zRjEaIlNAqe5fG+EjbbVhClQeS7+CiieNXciKuOTGBIVbn9j42B2MJZ/PjymsqS9tBjVHYusQReZGcKDN+wJpm5db7P/jcQuJpjvKfgFDBTCEExjbGp2rPMKrYk+d+CoFqvVArixwT2imNZr8/mB2dV+djkYbqaaEtKsLGiTeaQRTqMvIFRr9KQ/dnT6Q+rhRxx0XFKcTMj0sZLfwg6AAslRfdHfiH1KOj6sO4uNnZh2oYjUhIdY+htSWIJ7N24EdQ9pegYUWJHKIY8HwFiIbDp0c4ojbNOvBlEzznIliDiJjHbL3Y0UEHcjsJ9F8/vyAqq1EN2NlrE7to8q2KXd5Gbny2isYG4uI8XbNtqrYEnmVDJDD2O8/DcSoDWRshK/twYAZq8hmAnOKoeX8QhpSbhOb8Vo+e4Wu26dh7pRtYLkwa8E8sI3DqyKPiDMjvBmwiZ/PuAKYRFxE+QFSb67Ij5kpcN9BucLJeLbCfg4liMEIVVubTIOpSRpqpENDwn5a12kWctB9MABG4I3hVjkDLeNsWK5Q8R5K3+w4MOYM7VVL5wgaJ2ljAG9R/I=
 script:
   # The following command line builds the project, runs the tests with coverage and then executes the SonarCloud analysis
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=java-ebms-adapter_ebms-admin-console
