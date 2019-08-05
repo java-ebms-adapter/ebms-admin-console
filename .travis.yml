@@ -1,14 +1,14 @@
 language: java
 jdk: openjdk8
 before_deploy:
-- mvn help:evaluate -N -Dexpression=project.version|grep -v '\['
-- export project_version=$(mvn help:evaluate -N -Dexpression=project.version | grep -v '\[')
+  - mvn help:evaluate -N -Dexpression=project.version|grep -v '\['
+  - export project_version=$(mvn help:evaluate -N -Dexpression=project.version | grep -v '\[')
 deploy:
   provider: releases
   api_key:
     secure: "BauYbtJZNbD4tAGWA3kZ5LnOn/0gCWfuTLCw+Na4RS+2QAugmABwFGqsOTfMHqs7Mgy8jniRQMvoYzZrdq2QtagC4jXUSXbht/gLyaL3cZ+6PXc5XuySKyzioglEEJxV0x0uNEKxJjVdgTLrt5jJwWKMR+RoDB0DWemjBDuWkdvP8izvk/xCxJGQxORvsRfnBXlGfyHse1KAskH2HN2weMcXNlUZUKHkKzKWI1uSHwQ1Yv3T++meVshbGFC4cnoYU6YS1UHh7Tp+W7xiiA2aTQpSlY3soerz67cBfE+wVZwqHSggDpEMewyrDzZwq6FHwqUk9/VeMxss1xbqZvUFxSp9q7Z81xsn20+3jA11+WBBNO9LytyM5beTe7j1YgwD9UBBcgAGdJmg8RwAmlG2XUNSTgaZA0TqONHuYakz87Mn668n7kTZzmrjGsPP596L1tnUkJxVsXYAkDVxPiaHI/JU3d9C7PcRZsUVmTAReU36hPfO0KWYtmxMZvZMAcz7wB+CPKAjVu2X7g47ZmMOLaX4HdOIw+yAc++zcxmQEl174tNyI46MFu3RpGIfhAhS4lr/VVZwS2hfHcxPilGFpNvaLlGHZyKf/JkKkwz/gihlKkDPq+1tQ/7KWKeaFv3K6P4sObSkvpxpmT5kwoerMQW/aXbmULMOQ6yw0YgoFO4="
   file:
-  - target/ebms-admin-$project_version.jar
+    - target/ebms-admin-$project_version.jar
   skip_cleanup: true
   on:
     repo: java-ebms-adapter/ebms-admin-console
@@ -20,4 +20,5 @@ addons:
     token:
       secure: NVCfhWRNNR+lteUQytbKfurpQBg/GHTpPPk1jw29XtbofclKKcYN/3pyZzwSMdxfBl7zs18QOF0FikYZvOeVszwdddejIRPLWiP0PuyM7mFzZ9SNsPQcosgTMBdR/sWg6Z8tVWgqj/kjCd/De4KwJYbzwZTmpF7jdJYNMQeS0YoEunHVveJSwf11u22AXv1Sapecn+nL8t2tmOAAjxmrY8cqQ9a8AV1VYq2ToyaeyExWmUAKC2bSv6nKgPPWkriOpk7vQTYtLXFEP/L54cagCRoocLUSujOYyh+v3ZiAlW4h4Xm9UgtwWIN1eIKtWSJ9j2vzi5781gM9sKaVscmn5y1IbFzxCGreCjlpgzY8xst/c8DD1j0x5K2KMugoMHWsyrS5vKx64+6BWYW7srvZ80gBr4NYeyw8m2BLebLG8Q00OOxjq7Nb1tVVNK8zbZ6Sh6KFf50ff+x2p/eGc8XoetCJhZfQHPlfUJN5ervA0UH94yF2lZYfRtZ3rzj43kXKpKNLy5iQAZB0A8vmMtOK64CkXXRZbMktWJBU57j8DDr6qZwMaybP4ZkeNxVCqz/7KadPpDTjMnfehyRj0rMmc1TNgq3bA6n1YOTb3c/UT4tWDg7cv18WzcVv3Zgwcqk/BPjrZXBYPWbF7WpJoKae2glS6DhUPtX37/svohwqF9o=
 script:
-- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=java-ebms-adapter_ebms-admin-console
+  # The following command line builds the project, runs the tests with coverage and then executes the SonarCloud analysis
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=java-ebms-adapter_ebms-admin-console
