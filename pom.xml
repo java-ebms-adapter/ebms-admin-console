@@ -67,6 +67,7 @@
     </licenses>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jdk.version>1.7</jdk.version>
         <wicket.version>6.18.0</wicket.version>
         <jetty.version>7.6.18.v20150929</jetty.version>
@@ -74,7 +75,6 @@
         <cxf.version>2.7.14</cxf.version>
         <release.repo.url>http://sourceforge.net</release.repo.url>
         <snapshot.repo.url>http://sourceforge.net</snapshot.repo.url>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
@@ -235,12 +235,12 @@
             <version>1.3.1</version>
             <scope>runtime</scope>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.oracle</groupId>-->
-<!--            <artifactId>ojdbc7</artifactId>-->
-<!--            <version>12.1.0.2</version>-->
-<!--            <scope>runtime</scope>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.oracle</groupId>-->
+        <!--            <artifactId>ojdbc7</artifactId>-->
+        <!--            <version>12.1.0.2</version>-->
+        <!--            <scope>runtime</scope>-->
+        <!--        </dependency>-->
     </dependencies>
 
     <build>
