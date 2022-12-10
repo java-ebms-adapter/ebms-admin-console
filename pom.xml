@@ -71,7 +71,7 @@
         <jdk.version>1.7</jdk.version>
         <wicket.version>6.18.0</wicket.version>
         <jetty.version>7.6.18.v20150929</jetty.version>
-        <spring.version>4.2.7.RELEASE</spring.version>
+        <spring.version>6.0.0</spring.version>
         <cxf.version>2.7.14</cxf.version>
         <release.repo.url>http://sourceforge.net</release.repo.url>
         <snapshot.repo.url>http://sourceforge.net</snapshot.repo.url>
